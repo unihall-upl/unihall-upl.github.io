@@ -5,15 +5,10 @@ export const season = writable("0");
 export const current_data = writable();
 export const stats = writable("goals");
 export const teams = writable();
-export const form = writable();
 export const recent = writable()
 export const goalscorers = writable();
-export const assistants = writable();
-export const goalkeepers = writable();
 export const motm = writable();
 export const matches = writable();
-export const penalties = writable();
-export const involvements = writable();
 
 let selected = data;
 
@@ -32,52 +27,74 @@ season.subscribe((value) => {
 
 	current_data.set(selected[current]);
 
-    form.set([... selected[current].stats].slice(-5));
-
 	function generateTeam(name) {
 		return {
-			position: "",
-			name: name,
-			played: selected[current].stats.length,
+			position: 0,
+			played: 0,
+			points: 0,
 			won: 0,
 			drawn: 0,
 			lost: 0,
-			g: [0, 0]
+			gd: 0
 		}
 	}
 
-    let results = [ new generateTeam("Plasil"), new generateTeam("Grehn")]
+    let results = {}
 
 	selected[current].stats.forEach((node) => {
+		if (results[node.clubs[0]] === undefined) {
+			results[node.clubs[0]] = generateTeam(node.clubs[0]);
+		}
+
+		if (results[node.clubs[1]] === undefined) {
+			results[node.clubs[1]] = generateTeam(node.clubs[1]);
+		}
+
 		// Wins/Draws/Losses
-		if (node.score_plasil > node.score_grehn) {
-			results[0].won += 1;
-			results[1].lost += 1;
-		} else if (node.score_grehn > node.score_plasil) {
-			results[1].won += 1;
-			results[0].lost += 1;
+
+		if (node.home > node.away) {
+			results[node.clubs[0]].won += 1;
+			results[node.clubs[1]].lost += 1;
+			results[node.clubs[0]].points += 3;
+		} else if (node.away > node.home) {
+			results[node.clubs[1]].won += 1;
+			results[node.clubs[0]].lost += 1;
+			results[node.clubs[1]].points += 3;
 		} else {
-			results[1].drawn += 1;
-			results[0].drawn += 1;
+			results[node.clubs[0]].drawn += 1;
+			results[node.clubs[1]].drawn += 1;
+			results[node.clubs[0]].points += 1;
+			results[node.clubs[1]].points += 3;
 		}
 
 		// Goal Difference
-		results[0].g[0] += node.score_plasil;
-		results[0].g[1] += node.score_grehn;
-		results[1].g[0] += node.score_grehn;
-		results[1].g[1] += node.score_plasil;
+		results[node.clubs[0]].gd += node.home - node.away;
+		results[node.clubs[1]].gd += node.away - node.home;
+
+		// Matcheds Played
+		results[node.clubs[0]].played += 1
+		results[node.clubs[1]].played += 1
 	});
 
-	if (results[0].won < results[1].won || (results[0].won == results[1].won && results[0].g[0] < results[1].g[0])) {
-		results[1].position = "1";
-		results[0].position = "2";
-		results.reverse();
-	} else if (results[0].won == results[1].won) {
-		results[1].position = "=1";
-		results[0].position = "=1";
-	} else {
-		results[1].position = "2";
-		results[0].position = "1";
+	// Sorth the teams by points and goal difference
+
+	results = Object.fromEntries(
+		Object.entries(results).sort((a, b) => {
+			if (b[1].points == a[1].points) {
+				return b[1].gd - a[1].gd
+			}
+
+			return b[1].points - a[1].points;
+		})
+	);
+
+	// Update table position
+
+	let position = 1;
+
+	for (let [name, team] of Object.entries(results)) {
+		team.position = position;
+		position ++;
 	}
 
     teams.set(results);
@@ -87,7 +104,7 @@ season.subscribe((value) => {
     //
 
     function sortObject(obj) {
-		return Object.entries(obj).sort((a, b) => b[1] - a[1])
+		return Object.entries(obj).sort(([,a],[,b]) => b - a)
 	}
 
 	let scorers = {}
@@ -103,107 +120,6 @@ season.subscribe((value) => {
 	});
 
 	goalscorers.set(sortObject(scorers));
-
-	//
-    // Assists
-    //
-
-    function sortObject(obj) {
-		return Object.entries(obj).sort((a, b) => b[1] - a[1])
-	}
-
-	let helpers = {}
-
-	selected[current].stats.forEach((node) => {
-		node.assists.forEach((helper) => {
-			if (helper in helpers) {
-				helpers[helper] += 1
-			} else {
-				helpers[helper] = 1
-			}
-		});
-	});
-
-	assistants.set(sortObject(helpers));
-
-	//
-	// Goal Involvements
-	//
-
-	let ga = {};
-
-	selected[current].stats.forEach((node) => {
-		node.goals.forEach((player) => {
-			if (player in ga) {
-				ga[player] += 1
-			} else {
-				ga[player] = 1
-			}
-		});
-		node.assists.forEach((player) => {
-			if (player in ga) {
-				ga[player] += 1
-			} else {
-				ga[player] = 1
-			}
-		});
-	});
-
-	involvements.set(sortObject(ga));
-
-	//
-    // MOTM
-    //
-
-	let mvp = {}
-
-	selected[current].stats.forEach((node) => {
-		if (node.motm != "") {
-			if (node.motm in mvp) {
-				mvp[node.motm] += 1;
-			} else {
-				mvp[node.motm] = 1;
-			}
-		}
-	});
-
-	motm.set(sortObject(mvp));
-
-	//
-    // Clean Sheets
-    //
-
-	let keepers = {}
-
-	selected[current].stats.forEach((node) => {
-		node.clean_sheets.forEach((keeper) => {
-			if (keeper in keepers) {
-				keepers[keeper] += 1
-			} else {
-				keepers[keeper] = 1
-			}
-		});
-	});
-
-	goalkeepers.set(sortObject(keepers));
-
-	//
-	// Penalties Saved
-	//
-
-	keepers = {}
-
-	selected[current].stats.forEach((node) => {
-		node.penalties_saved.forEach((keeper) => {
-			if (keeper in keepers) {
-				keepers[keeper] += 1
-			} else {
-				keepers[keeper] = 1
-			}
-		});
-	});
-
-	penalties.set(sortObject(keepers));
 
     //
     // Matches

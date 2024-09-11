@@ -14,11 +14,10 @@
 
 <div class="header">
 	<ul>
-		<li class="branding desktop"><b>BREAKTIME</b> BHORA</li>
-		<li class="branding mobile"><b>B</b>B</li>
+		<li class="branding desktop"><b>UniHall</b> Football</li>
+		<li class="branding mobile"><b>UH</b>F</li>
 		<li class:active={$page.url.pathname === '/'}><a on:click={reset} href="/" preload="true">Tables</a></li>
-		<li class:active={$page.url.pathname === '/stats'}><a on:click={reset} href="/stats" preload="true">Stats</a></li>
-		<li class:active={$page.url.pathname === '/comparison'}><a on:click={reset} href="/comparison" preload="true">Comparison</a></li>
+		<li class:active={$page.url.pathname === '/golden-boot'}><a on:click={reset} href="/golden-boot" preload="true">Golden Boot</a></li>
 		<li class:active={$page.url.pathname === '/results'}><a on:click={reset} href="/results" preload="true">Results</a></li>
 	</ul>
 </div>
@@ -28,7 +27,7 @@
 		padding: 16px;
 		margin: 0;
 		width: 100%;
-		background-color: #0C073F;
+		background-color: #3f752e;
 		color: #ffffff;
 		font-size: 1.1em;
 	}
@@ -38,20 +37,18 @@
 	}
 
 	.active {
-		color: #00ffc8;
+		color: #fdfb60;
 	}
 
 	b {
-		color: #00ffc8;
 		font-size: 1em;
 	}
 
 	.branding {
 		font-weight: 400;
-		font-size: 1.1em;
+		font-size: 1.3em;
 		text-align: left;
 		float: left;
-		font-family: "Barlow", sans-serif;
 	}
 
 	ul {
