@@ -7,7 +7,7 @@
 </svelte:head>
 
 <table>
-	<tr><th style="width: 8ch">Date</th><th style="text-align: center; width: 30ch;">Result</th><th class="collapse">Goalscorers</th></tr>
+	<tr><th style="width: 10ch">Date</th><th style="text-align: center; width: 34ch;">Result</th><th class="collapse">Goals</th></tr>
 	{#each $matches as match}
 		<tr>
 			<td>{new Date(
@@ -62,4 +62,9 @@
 		padding-inline: 5px;
 	}
 	
+	@media screen and (max-width: 500px) {
+		.collapse {
+			display: none;
+		}
+	}
 </style>
