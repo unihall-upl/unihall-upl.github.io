@@ -60,7 +60,7 @@ current_data.subscribe((value) => {
         player("Coline Chane-Waye", "DEC"),
         player("Tapiwa Ziteya", "DEC"),
         player("Seo Seongwon", "DEC"),
-        player("Tanguy", "DEC"),
+        player("Tanguy Tilmont", "DEC"),
         
         // JK (25 Players)
         player("Milan Varghese", "JK"),
