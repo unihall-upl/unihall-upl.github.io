@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Unihall Football | Golden Boot</title>
+	<title>UPL | Golden Boot</title>
 </svelte:head>
 
 <table>

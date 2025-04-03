@@ -42,41 +42,42 @@ season.subscribe((value) => {
     let results = {}
 
 	selected[current].stats.forEach((node) => {
-		if (results[node.clubs[0]] === undefined) {
+		if (results[node.clubs[0]] === undefined && node.clubs[0] != "TBC") {
 			results[node.clubs[0]] = generateTeam(node.clubs[0]);
 		}
 
-		if (results[node.clubs[1]] === undefined) {
+		if (results[node.clubs[1]] === undefined && node.clubs[0] != "TBC") {
 			results[node.clubs[1]] = generateTeam(node.clubs[1]);
 		}
 
 		// Wins/Draws/Losses
+		if (node.played && node.stage == "league") {
+			if (node.home > node.away) {
+				results[node.clubs[0]].won += 1;
+				results[node.clubs[1]].lost += 1;
+				results[node.clubs[0]].points += 3;
+			} else if (node.away > node.home) {
+				results[node.clubs[1]].won += 1;
+				results[node.clubs[0]].lost += 1;
+				results[node.clubs[1]].points += 3;
+			} else {
+				results[node.clubs[0]].drawn += 1;
+				results[node.clubs[1]].drawn += 1;
+				results[node.clubs[0]].points += 1;
+				results[node.clubs[1]].points += 1;
+			}
 
-		if (node.home > node.away) {
-			results[node.clubs[0]].won += 1;
-			results[node.clubs[1]].lost += 1;
-			results[node.clubs[0]].points += 3;
-		} else if (node.away > node.home) {
-			results[node.clubs[1]].won += 1;
-			results[node.clubs[0]].lost += 1;
-			results[node.clubs[1]].points += 3;
-		} else {
-			results[node.clubs[0]].drawn += 1;
-			results[node.clubs[1]].drawn += 1;
-			results[node.clubs[0]].points += 1;
-			results[node.clubs[1]].points += 3;
+			// Goal Difference
+			results[node.clubs[0]].gd += node.home - node.away;
+			results[node.clubs[1]].gd += node.away - node.home;
+
+			// Matcheds Played
+			results[node.clubs[0]].played += 1
+			results[node.clubs[1]].played += 1
 		}
-
-		// Goal Difference
-		results[node.clubs[0]].gd += node.home - node.away;
-		results[node.clubs[1]].gd += node.away - node.home;
-
-		// Matcheds Played
-		results[node.clubs[0]].played += 1
-		results[node.clubs[1]].played += 1
 	});
 
-	// Sorth the teams by points and goal difference
+	// Sort the teams by points and goal difference
 
 	results = Object.fromEntries(
 		Object.entries(results).sort((a, b) => {
@@ -125,5 +126,5 @@ season.subscribe((value) => {
     // Matches
     //
 
-    matches.set([... selected[current].stats].reverse());
+    matches.set([... selected[current].stats]);
 });

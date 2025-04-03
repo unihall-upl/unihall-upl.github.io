@@ -3,20 +3,21 @@
 </script>
 
 <svelte:head>
-	<title>Unihall Football | Results</title>
+	<title>UPL | Results</title>
 </svelte:head>
 
 <table>
-	<tr><th style="width: 10ch">Date</th><th style="text-align: center; width: 34ch;">Result</th><th class="collapse">Goals</th></tr>
+	<tr><th style="width: 15ch">Date</th><th style="width: 13ch">Location</th><th style="text-align: center; width: 34ch;">Result</th><th class="collapse">Goals</th></tr>
 	{#each $matches as match}
 		<tr>
-			<td>{new Date(
+			<td>{match.time}, {new Date(
 					match.date.split("/").reverse().join("-"),
 				).toLocaleDateString(undefined, {
-					month: "short",
+					month: "long",
 					day: "numeric",
 				})}
 			</td>
+			<td>Riley Oval, UWA</td>
 			<td class="flex">
 				<img
 					height="34px"
@@ -26,7 +27,7 @@
 				<div class="span">
 					<p>{match.clubs[0]}</p>
 				</div>
-				<p>{match.home} - {match.away}</p>
+				<p>{#if match.played}{match.home} - {match.away}{:else} vs {/if}</p>
 				<div class="span">
 					<p>{match.clubs[1]}</p>
 				</div>

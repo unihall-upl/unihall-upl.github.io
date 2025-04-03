@@ -13,12 +13,17 @@
 </script>
 
 <div class="header">
-	<ul>
-		<li class="branding desktop"><b>UniHall</b> Football</li>
-		<li class="branding mobile"><b>UH</b>F</li>
-		<li class:active={$page.url.pathname === '/'}><a on:click={reset} href="/" preload="true">Tables</a></li>
-		<li class:active={$page.url.pathname === '/golden-boot'}><a on:click={reset} href="/golden-boot" preload="true">Golden Boot</a></li>
-		<li class:active={$page.url.pathname === '/results'}><a on:click={reset} href="/results" preload="true">Results</a></li>
+	<ul class="flex">
+		<div class="brand">
+			<li class="branding desktop"><b>UniHall</b> Premier League</li>
+			<li class="branding mobile">UPL</li>	
+		</div>
+		<div class="links">
+			<li class:active={$page.url.pathname === '/'}><a on:click={reset} href="/" preload="true">Home</a></li>
+			<li class:active={$page.url.pathname === '/tables'}><a on:click={reset} href="/tables" preload="true">Tables</a></li>
+			<li class:active={$page.url.pathname === '/golden-boot'}><a on:click={reset} href="/golden-boot" preload="true">Goals</a></li>
+			<li class:active={$page.url.pathname === '/fixtures'}><a on:click={reset} href="/fixtures" preload="true">Fixtures</a></li>	
+		</div>
 	</ul>
 </div>
 
@@ -30,6 +35,9 @@
 		background-color: #3f752e;
 		color: #ffffff;
 		font-size: 1.1em;
+		position: fixed;
+		left: 0;
+		top: 0;
 	}
 
 	.mobile {
@@ -48,16 +56,17 @@
 		font-weight: 400;
 		font-size: 1.3em;
 		text-align: left;
-		float: left;
+		vertical-align: middle;
 	}
 
-	ul {
-		width: 100%;
-		max-width: 1800px;
+	.flex {
+		width: min(100%, 1200px);
 		padding: 0;
 		margin: 0 auto;
 		list-style-type: none;
-		text-align: right;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	li {

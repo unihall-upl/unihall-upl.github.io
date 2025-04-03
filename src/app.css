@@ -11,6 +11,7 @@ body {
 
 .main {
 	width: 100%;
+	margin-top: 57px;
 }
 
 table {
@@ -35,4 +36,9 @@ th, td {
 
 .branding, h1 {
 	font-family: "Signika Negative", sans-serif;
+}
+
+::selection, ::-moz-selection {
+	background-color: #66865c;
+	color: #ffffff;
 }

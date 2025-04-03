@@ -1,11 +1,46 @@
 <script>
-	import { teams, recent } from "$lib/shared/stores/season.js";
+	import FixtureBlock from "../lib/fixture-block/FixtureBlock.svelte";
+	import Champions from "../lib/champions/Champions.svelte";
+	import { teams, matches } from "$lib/shared/stores/season.js";
+	
+	let upcoming = [];
+	let recent = [];
+
+	$matches.forEach(match => {
+		if (!match.played) {
+			upcoming.push(match);
+		} else {
+			recent.push(match);
+		}
+	});
 </script>
 
 <svelte:head>
-	<title>Unihall Football | Tables</title>
+	<title>UniHall Premier League</title>
 </svelte:head>
 
+<Champions final={$matches.slice(-1)[0]} third={$matches.slice(-2, -1)[0]} />
+
+{#if recent.length > 0}
+<h2>Recent</h2>
+<div class="upcoming">
+	{#each recent as match}
+		<FixtureBlock lhs={match.clubs[0]} rhs={match.clubs[1]} home={match.home} away={match.away} played={true} stage={match.stage} />
+	{/each}	
+</div>
+{/if}
+
+
+{#if upcoming.length > 0}
+<h2>Upcoming</h2>
+<div class="upcoming">
+	{#each upcoming as match}
+		<FixtureBlock lhs={match.clubs[0]} rhs={match.clubs[1]} played={false} stage={match.stage} />
+	{/each}	
+</div>
+{/if}
+
+<h2>Table</h2>
 <table>
 	<tr><th width="20px"></th><th style="text-align: left">Club</th><th width="20px">P</th><th width="20px">W</th><th width="20px">D</th><th width="20px">L</th><th width="20px">+/-</th><th width="20px"><b>Pts</b></th></tr>
 	{#each Object.entries($teams) as [name, team]}

@@ -1,73 +1,86 @@
 [
     {
-        "season": "2nd Semester 2024",
+        "season": "2025",
         "stats": [
             {
-                "date": "25/08/2024",
-                "clubs": ["A", "JL"],
-                "home": 5,
-                "away": 1,
-                "goals": [
-                    "Marcus",
-                    "Marcus",
-                    "Marcus",
-                    "Marcus",
-                    "Moses",
-                    "Dhey"
-                ]
+                "stage": "league",
+                "played": false,
+                "date": "05/04/2025",
+                "time": "15:00",
+                "clubs": ["MA", "JK"],
+                "home": 0,
+                "away": 0,
+                "goals": []
             },
             {
-                "date": "25/08/2024",
-                "clubs": ["B", "DEC"],
-                "home": 9,
-                "away": 6,
-                "goals": [
-                    "Bilal",
-                    "Bilal",
-                    "Bilal",
-                    "Ethan",
-                    "Gordon",
-                    "Gordon",
-                    "Linton",
-                    "Linton",
-                    "Linton",
-                    "Linton",
-                    "Huggins",
-                    "Tinashe",
-                    "Tinashe",
-                    "James",
-                    "Zee"
-                ]
+                "stage": "league",
+                "played": false,
+                "date": "05/04/2025",
+                "time": "15:00",
+                "clubs": ["BL", "DEC"],
+                "home": 0,
+                "away": 0,
+                "goals": []
             },
             {
-                "date": "25/08/2024",
-                "clubs": ["JL", "MK"],
-                "home": 5,
-                "away": 4,
-                "goals": [
-                    "Dabeer",
-                    "Dabeer",
-                    "Shourjya",
-                    "Shourjya",
-                    "Hrishik",
-                    "Rohans",
-                    "Min"
-
-                ]
+                "stage": "league",
+                "played": false,
+                "date": "05/04/2025",
+                "time": "16:00",
+                "clubs": ["BL", "MA"],
+                "home": 0,
+                "away": 0,
+                "goals": []
             },
             {
-                "date": "25/08/2024",
-                "clubs": ["DEC", "A"],
-                "home": 2,
-                "away": 4,
-                "goals": [
-                    "Marcus",
-                    "Gordon",
-                    "Bilal",
-                    "Taps",
-                    "Jason",
-                    "Nic"
-                ]
+                "stage": "league",
+                "played": false,
+                "date": "05/04/2025",
+                "time": "16:00",
+                "clubs": ["DEC", "JK"],
+                "home": 0,
+                "away": 0,
+                "goals": []
+            },
+            {
+                "stage": "league",
+                "played": false,
+                "date": "26/04/2025",
+                "time": "15:00",
+                "clubs": ["DEC", "MA"],
+                "home": 0,
+                "away": 0,
+                "goals": []
+            },
+            {
+                "stage": "league",
+                "played": false,
+                "date": "26/04/2025",
+                "time": "15:00",
+                "clubs": ["JK", "BL"],
+                "home": 0,
+                "away": 0,
+                "goals": []
+            },
+            {
+                "stage": "third-fourth",
+                "played": false,
+                "date": "26/04/2025",
+                "time": "16:00",
+                "clubs": ["TBC", "TBC"],
+                "home": 0,
+                "away": 0,
+                "goals": []
+            },
+            {
+                "stage": "final",
+                "played": false,
+                "date": "26/04/2025",
+                "time": "16:00",
+                "clubs": ["TBC", "TBC"],
+                "home": 0,
+                "away": 0,
+                "goals": []
             }
         ]
     }

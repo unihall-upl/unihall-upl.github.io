@@ -4,9 +4,9 @@
 	import { page } from '$app/stores';
 
 	let pages = {
-		"/results": "Results",
+		"/fixtures": "Fixtures & Results",
 		"/golden-boot": "Golden Boot",
-		"/": "Tables"
+		"/tables": "Tables"
 	}
 </script>
 
@@ -14,7 +14,9 @@
 
 <main>
 	<div class="main">
-		<h1>{pages[$page.url.pathname]}</h1>
+		{#if $page.url.pathname != "/"}
+			<h1>{pages[$page.url.pathname]}</h1>
+		{/if}
 		<div class="slot">
 			<slot />
 		</div>
@@ -28,8 +30,7 @@
 		flex-direction: column;
 		padding: 1rem;
 		padding-top: 0;
-		width: 100%;
-		max-width: 1800px;
+		width: min(100%, 1200px);
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
