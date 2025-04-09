@@ -4,43 +4,62 @@
         "stats": [
             {
                 "stage": "league",
-                "played": false,
+                "played": true,
                 "date": "05/04/2025",
                 "time": "15:00",
                 "clubs": ["MA", "JK"],
                 "home": 0,
-                "away": 0,
-                "goals": []
+                "away": 2,
+                "goals": [
+                    "David Martin",
+                    "Zee Wei Goh"
+                ]
             },
             {
                 "stage": "league",
-                "played": false,
+                "played": true,
                 "date": "05/04/2025",
                 "time": "15:00",
                 "clubs": ["BL", "DEC"],
                 "home": 0,
-                "away": 0,
-                "goals": []
+                "away": 4,
+                "goals": [
+                    "Jakob Mosch",
+                    "Benji Passaportis",
+                    "Benji Passaportis",
+                    "Benji Passaportis"
+                ]
             },
             {
                 "stage": "league",
-                "played": false,
+                "played": true,
                 "date": "05/04/2025",
                 "time": "16:00",
                 "clubs": ["BL", "MA"],
-                "home": 0,
-                "away": 0,
-                "goals": []
+                "home": 6,
+                "away": 1,
+                "goals": [
+                    "Gavin Cantlay",
+                    "Gavin Cantlay",
+                    "Gavin Cantlay",
+                    "Gavin Cantlay",
+                    "Dabeer Shikrani",
+                    "Caleb Ang",
+                    "Joel MacPherson"
+                ]
             },
             {
                 "stage": "league",
-                "played": false,
+                "played": true,
                 "date": "05/04/2025",
                 "time": "16:00",
                 "clubs": ["DEC", "JK"],
                 "home": 0,
-                "away": 0,
-                "goals": []
+                "away": 2,
+                "goals": [
+                    "Cody Thongpitukthavorn",
+                    "Zee Wei Goh"
+                ]
             },
             {
                 "stage": "league",

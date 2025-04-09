@@ -35,6 +35,7 @@ current_data.subscribe((value) => {
         player("Huggins Machaka", "MA"),
         player("Nagisa Futagawa", "MA"),
         player("Josh Linarto", "MA"),
+        player("Joel MacPherson", "MA"),
 
         // BL (10 Players)
         player("Dabeer Shikrani", "BL"),
@@ -64,6 +65,7 @@ current_data.subscribe((value) => {
         
         // JK (25 Players)
         player("Milan Varghese", "JK"),
+        player("Caleb Ang", "JK"),
         player("Marcus Tsui", "JK"),
         player("Zee Wei Goh", "JK"),
         player("Ethan Sim", "JK"),

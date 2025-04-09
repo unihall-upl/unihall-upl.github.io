@@ -68,4 +68,10 @@
 			display: none;
 		}
 	}
+
+	@media screen and (max-width: 420px) {
+		img {
+			display: none;
+		}
+	}
 </style>
