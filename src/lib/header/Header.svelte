@@ -14,15 +14,17 @@
 
 <div class="header">
 	<ul class="flex">
-		<div class="brand">
-			<li class="branding desktop"><b>UniHall</b> Premier League</li>
-			<li class="branding mobile">UPL</li>	
-		</div>
+		<a on:click={reset} href="/" preload="true">
+			<div class="brand">
+				<li class="branding desktop"><b>UniHall</b> Premier League</li>
+				<li class="branding mobile">UPL</li>	
+			</div>
+		</a>
 		<div class="links">
-			<li class:active={$page.url.pathname === '/'}><a on:click={reset} href="/" preload="true">Home</a></li>
 			<li class:active={$page.url.pathname === '/tables'}><a on:click={reset} href="/tables" preload="true">Tables</a></li>
 			<li class:active={$page.url.pathname === '/golden-boot'}><a on:click={reset} href="/golden-boot" preload="true">Goals</a></li>
-			<li class:active={$page.url.pathname === '/fixtures'}><a on:click={reset} href="/fixtures" preload="true">Fixtures</a></li>	
+			<li class:active={$page.url.pathname === '/fixtures'}><a on:click={reset} href="/fixtures" preload="true">Fixtures</a></li>
+			<li class:active={$page.url.pathname === '/gallery'}><a on:click={reset} href="/gallery" preload="true">Gallery</a></li>
 		</div>
 	</ul>
 </div>

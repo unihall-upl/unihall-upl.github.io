@@ -6,7 +6,8 @@
 	let pages = {
 		"/fixtures": "Fixtures & Results",
 		"/golden-boot": "Golden Boot",
-		"/tables": "Tables"
+		"/tables": "Tables",
+		"/gallery": "Gallery"
 	}
 </script>
 
