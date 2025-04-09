@@ -1,6 +1,6 @@
 <script>
     import Viewer from "../../lib/viewer/Viewer.svelte";
-    const images = import.meta.glob('$lib/gallery/*.jpeg', { eager: true });
+    const images = [0, 1, 2, 3, 4, 5, 6, 7];
 </script>
 
 <Viewer imgSrc={images} />

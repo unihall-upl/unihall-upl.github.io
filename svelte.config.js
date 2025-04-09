@@ -7,6 +7,11 @@ export default {
       assets: 'build',
       fallback: null,
       precompress: false
-    })
+    }),
+    prerender: {
+      onError: () => {
+        return "continue";
+      }
+    }
   }
 };

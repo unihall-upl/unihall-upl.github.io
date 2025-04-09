@@ -11,9 +11,11 @@
 </script>
 
 <div class="grid">
-    {#each Object.entries(imgSrc) as image}
+    {#each imgSrc as image}
         <div class="imgContainer">
-            <img class="galleryItem" src={image[0]} alt="Football gallery item" on:click={updateImage}>
+            {#await import(`$lib/gallery/${image}.jpeg`) then { default: src }}
+                <img class="galleryItem" src={src} alt="Football gallery item" on:click={updateImage}>
+            {/await}
         </div>
     {/each}    
 </div>
