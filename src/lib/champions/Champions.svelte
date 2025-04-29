@@ -2,7 +2,9 @@
     export let final;
     export let third;
 
-    let gold = final.clubs[0] > final.clubs[1] ? final.clubs[0] : final.clubs[1];
+    console.log(final);
+
+    let gold = final.away > final.home ? final.clubs[1] : final.clubs[0];
 </script>
 
 {#if final.played}
@@ -15,10 +17,10 @@
                 <div>
                     <h4>Third-Fourth Playoff</h4>
                     <div class="results">
-                        <img height="34px" src="./{final.clubs[0].toLowerCase()}.png"alt={final.clubs[0]}/>
-                        <h3>{final.clubs[0]} {final.home} - {final.away} {final.clubs[1]}</h3>
-                        <img height="34px" src="./{final.clubs[1].toLowerCase()}.png"alt={final.clubs[1]}/>    
-                    </div>    
+                        <img height="34px" src="./{third.clubs[0].toLowerCase()}.png"alt={third.clubs[0]}/>
+                        <h3>{third.clubs[0]} {third.home} - {third.away} {third.clubs[1]}</h3>
+                        <img height="34px" src="./{third.clubs[1].toLowerCase()}.png"alt={third.clubs[1]}/>    
+                    </div> 
                 </div>  
             </div>
             <div class="fixture">

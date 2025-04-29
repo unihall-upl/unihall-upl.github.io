@@ -29,13 +29,15 @@ current_data.subscribe((value) => {
         player("Jason White", "MA"),
         player("Hans Ragoonath", "MA"),
         player("Minh Quan", "MA"),
-        player("Eduardo", "MA"),
         player("Rodney Gakpo", "MA"),
         player("Christian Masbudi", "MA"),
         player("Huggins Machaka", "MA"),
         player("Nagisa Futagawa", "MA"),
         player("Josh Linarto", "MA"),
         player("Joel MacPherson", "MA"),
+        player("Mo", "MA"),
+        player("Zino", "MA"),
+        player("David Martin", "MA"),
 
         // BL (10 Players)
         player("Dabeer Shikrani", "BL"),
@@ -62,6 +64,9 @@ current_data.subscribe((value) => {
         player("Tapiwa Ziteya", "DEC"),
         player("Seo Seongwon", "DEC"),
         player("Tanguy Tilmont", "DEC"),
+        player("Yannick Horta", "DEC"),
+        player("Moses Gwese", "DEC"),
+        player("Eduardo", "DEC"),
         
         // JK (25 Players)
         player("Milan Varghese", "JK"),
@@ -70,9 +75,7 @@ current_data.subscribe((value) => {
         player("Zee Wei Goh", "JK"),
         player("Ethan Sim", "JK"),
         player("Bilal Selim", "JK"),
-        player("David Martin", "JK"),
         player("Asha Robson", "JK"),
-        player("Yannick Horta", "JK"),
         player("Shunta Harada", "JK"),
         player("Cody Thongpitukthavorn", "JK"),
         player("Gabriel Anderson", "JK"),
@@ -88,7 +91,6 @@ current_data.subscribe((value) => {
         player("Mitul Agarwal", "JK"),
         player("Advay Katoch", "JK"),
         player("Irfan Farozi", "JK"),
-        player("Moses Gwese", "JK"),
         player("Justin Adam", "JK")
     ]);
 });

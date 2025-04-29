@@ -63,43 +63,73 @@
             },
             {
                 "stage": "league",
-                "played": false,
+                "played": true,
                 "date": "26/04/2025",
                 "time": "15:00",
                 "clubs": ["DEC", "MA"],
-                "home": 0,
-                "away": 0,
-                "goals": []
+                "home": 8,
+                "away": 1,
+                "goals": [
+                    "Linton Mushayabasa",
+                    "Linton Mushayabasa",
+                    "Linton Mushayabasa",
+                    "Moses Gwese",
+                    "Moses Gwese",
+                    "Benji Passaportis",
+                    "Benji Passaportis",
+                    "Yannick Horta",
+                    "Mo"
+                ]
             },
             {
                 "stage": "league",
-                "played": false,
+                "played": true,
                 "date": "26/04/2025",
                 "time": "15:00",
                 "clubs": ["JK", "BL"],
-                "home": 0,
-                "away": 0,
-                "goals": []
+                "home": 7,
+                "away": 2,
+                "goals": [
+                    "Gavin Cantlay",
+                    "Gavin Cantlay",
+                    "Hrishik Kaul",
+                    "Zee Wei Goh",
+                    "Zee Wei Goh",
+                    "Marcus Tsui",
+                    "Bilal Selim",
+                    "Bilal Selim",
+                    "Bilal Selim"
+                ]
             },
             {
                 "stage": "third-fourth",
-                "played": false,
+                "played": true,
                 "date": "26/04/2025",
                 "time": "16:00",
-                "clubs": ["TBC", "TBC"],
-                "home": 0,
-                "away": 0,
-                "goals": []
+                "clubs": ["MA", "BL"],
+                "home": 3,
+                "away": 2,
+                "goals": [
+                    "Rodney Gakpo",
+                    "David Martin",
+                    "Dabeer Shikrani",
+                    "Dabeer Shikrani",
+                    "Zino"
+                ]
             },
             {
                 "stage": "final",
-                "played": false,
+                "played": true,
                 "date": "26/04/2025",
                 "time": "16:00",
-                "clubs": ["TBC", "TBC"],
-                "home": 0,
-                "away": 0,
-                "goals": []
+                "clubs": ["JK", "DEC"],
+                "home": 1,
+                "away": 2,
+                "goals": [
+                    "Zee Wei Goh",
+                    "Benji Passaportis",
+                    "Benji Passaportis"
+                ]
             }
         ]
     }
